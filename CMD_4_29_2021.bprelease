@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
+    <bpr:name>CMD_4_29_2021</bpr:name>
+    <bpr:release-notes />
+    <bpr:created>2021-04-29 14:48:22Z</bpr:created>
+    <bpr:package-id>26</bpr:package-id>
+    <bpr:package-name>CMD</bpr:package-name>
+    <bpr:user-created-by>admin</bpr:user-created-by>
+    <bpr:contents count="2">
+        <object id="e28d5fb0-9978-480f-8145-1e6032e2df58" name="Nephthis - CMD" xmlns="http://www.blueprism.co.uk/product/process"><process name="Nephthis - CMD" version="1.0" bpversion="7.0.0.35305" narrative="" byrefcollection="true" type="object" runmode="Background"><appdef><element name="Application Root"><id>182a0f46-0557-46f4-b76e-250b72b4a2b7</id><type>Application</type><basetype>Application</basetype><datatype>unknown</datatype><diagnose>False</diagnose></element></appdef><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view><preconditions /><endpoint narrative="" /><subsheet subsheetid="eb4ca6c4-c673-424d-8a66-233da86f1f31" type="CleanUp" published="True"><name>Clean Up</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="735d633f-bd13-4095-ad0e-963e2a1703e5" type="Normal" published="True"><name>Run, get output</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><stage stageid="bfa1a96f-604f-475b-97a0-0bd60c380b23" name="Start" type="Start"><loginhibit /><display x="15" y="-105" /><onsuccess>3df8dc7c-a0be-4a5e-b39c-d2c458000c9f</onsuccess></stage><stage stageid="3df8dc7c-a0be-4a5e-b39c-d2c458000c9f" name="End" type="End"><loginhibit /><display x="15" y="90" /></stage><stage stageid="c757e92b-6d87-4fe2-8003-692fc71c56d3" name="Stage1" type="ProcessInfo"><display x="-195" y="-105" w="150" h="90" /><references><reference>System.dll</reference><reference>System.Data.dll</reference><reference>System.Xml.dll</reference><reference>System.Drawing.dll</reference></references><imports><import>System</import><import>System.Drawing</import><import>System.Data</import><import>System.Diagnostics</import></imports><language>visualbasic</language><globalcode><![CDATA[]]></globalcode><code><![CDATA[]]></code></stage><stage stageid="71d61b44-fe23-432d-8988-6984a2d90132" name="Clean Up" type="SubSheetInfo"><subsheetid>eb4ca6c4-c673-424d-8a66-233da86f1f31</subsheetid><display x="-195" y="-105" w="150" h="90" /></stage><stage stageid="f96998d3-efe7-48c1-a18e-236209d8fd72" name="Start" type="Start"><subsheetid>eb4ca6c4-c673-424d-8a66-233da86f1f31</subsheetid><loginhibit /><display x="15" y="-105" /><onsuccess>22a4ceab-ce68-4143-9b88-806ca44cd6d6</onsuccess></stage><stage stageid="22a4ceab-ce68-4143-9b88-806ca44cd6d6" name="End" type="End"><subsheetid>eb4ca6c4-c673-424d-8a66-233da86f1f31</subsheetid><loginhibit /><display x="15" y="90" /></stage><stage stageid="d1c824d1-ed11-4fc2-9954-92b49545d288" name="Run, get output" type="SubSheetInfo"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><display x="-195" y="-105" w="150" h="90" /></stage><stage stageid="9389b13f-4f08-4c56-93a4-bac74ef7d1ec" name="Start" type="Start"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><loginhibit /><display x="15" y="-105" /><inputs><input type="text" name="Path" stage="Path" /><input type="text" name="Args" stage="Args" /></inputs><onsuccess>919a9992-d5cd-4749-b55c-b594e43a9596</onsuccess></stage><stage stageid="a7ccee61-6afe-4251-96cf-4d6827d299c5" name="End" type="End"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><loginhibit /><display x="15" y="90" /><outputs><output type="text" name="Out" stage="Out" /></outputs></stage><stage stageid="2f62b744-3164-462c-92ad-118be80d104f" name="Note1" type="Note"><subsheetid>eb4ca6c4-c673-424d-8a66-233da86f1f31</subsheetid><narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative><display x="-180" y="60" w="180" h="230" /></stage><stage stageid="505d8ca9-1c39-41c1-8ad7-65f1160147dd" name="Note2" type="Note"><narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative><display x="-180" y="60" w="180" h="230" /></stage><stage stageid="919a9992-d5cd-4749-b55c-b594e43a9596" name="CLI" type="Code"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><loginhibit /><display x="15" y="-30" /><inputs><input type="text" name="Path" expr="[Path]" /><input type="text" name="Args" expr="[Args]" /></inputs><outputs><output type="text" name="Output" stage="Out" /></outputs><onsuccess>a7ccee61-6afe-4251-96cf-4d6827d299c5</onsuccess><code><![CDATA[Dim oProcess As New Process()
+Dim oStartInfo As New ProcessStartInfo(Path, Args)
+oStartInfo.UseShellExecute = False
+oStartInfo.RedirectStandardOutput = True
+oStartInfo.WindowStyle = ProcessWindowStyle.Hidden
+oStartInfo.CreateNoWindow = True
+oProcess.StartInfo = oStartInfo
+oProcess.Start()
+
+Dim sOutput As String
+Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
+	sOutput = oStreamReader.ReadToEnd()
+End Using
+Output=sOutput
+]]></code></stage><stage stageid="77aebac9-c048-4977-aee1-f8392e543e7c" name="Path" type="Data"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><display x="90" y="-105" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="d3e5e356-db50-4630-90d1-78e64160fdaf" name="Out" type="Data"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><display x="90" y="-30" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="0eacc3d4-7acc-4daf-8f73-b14ceec344f5" name="Args" type="Data"><subsheetid>735d633f-bd13-4095-ad0e-963e2a1703e5</subsheetid><display x="135" y="-105" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="115737de-eda2-489c-9709-492360050468" name="Data1" type="Data"><loginhibit /><display x="60" y="-60" /><datatype>unknown</datatype><initialvalue /><private /><alwaysinit /></stage></process></object>
+        <object-group id="73a384f5-0859-4fd2-8fb2-bc7e89098469" name="Nephthis" isDefaultGroup="False" xmlns="http://www.blueprism.co.uk/product/object-group">
+            <members>
+                <object id="e28d5fb0-9978-480f-8145-1e6032e2df58" />
+            </members>
+        </object-group>
+    </bpr:contents>
+</bpr:release>
